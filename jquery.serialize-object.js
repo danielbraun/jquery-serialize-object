@@ -84,6 +84,12 @@
       switch ($('[name="' + pair.name + '"]', $form).attr("type")) {
         case "checkbox":
           return pair.value === "on" ? true : pair.value;
+        case "number":
+          return parseInt(pair.value, 10) || undefined;
+        case "datetime":
+        case "datetime-local":
+          return (new Date(pair.value)).getTime() ? new Date(pair.value)
+                                                  : undefined;
         default:
           return pair.value;
       }
