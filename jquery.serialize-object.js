@@ -91,7 +91,7 @@
           return (new Date(pair.value)).getTime() ? new Date(pair.value)
                                                   : undefined;
         default:
-          return pair.value;
+          return pair.value === "" ? undefined : pair.value;
       }
     }
 
