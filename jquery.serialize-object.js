@@ -85,7 +85,7 @@
         case "checkbox":
           return pair.value === "on" ? true : pair.value;
         case "number":
-          return parseInt(pair.value, 10) || undefined;
+          return parseFloat(pair.value) || undefined;
         case "datetime":
         case "datetime-local":
           return (new Date(pair.value)).getTime() ? new Date(pair.value)
