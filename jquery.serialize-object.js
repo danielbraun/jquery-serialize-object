@@ -88,8 +88,8 @@
           return parseFloat(pair.value) || undefined;
         case "datetime":
         case "datetime-local":
-          return (new Date(pair.value)).getTime() ? new Date(pair.value)
-                                                  : undefined;
+          return moment(pair.value).isValid() ? moment(pair.value).toDate()
+                                              : undefined;
         default:
           return pair.value === "" ? undefined : pair.value;
       }
